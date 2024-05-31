@@ -8,7 +8,6 @@ newtype Structure = Structure String
 type Title = String
 
 
-
 html_ :: Title -> Structure -> Html
 html_ title body = 
     Html
@@ -27,6 +26,7 @@ code_ = Structure . el "pre" . escape
 h1_ :: String -> Structure
 h1_ = Structure . el "h1" . escape 
 
+
 ul_ :: [Structure] -> Structure
 ul_ = Structure . el "ul" . concat . map (el "li" . getStructureString) 
 
@@ -38,8 +38,10 @@ el tag content =
   "<" <> tag <> ">" <> content <> "</" <> tag <> ">"
 
 
-append_ :: Structure -> Structure -> Structure 
-append_ (Structure s) (Structure s2) = Structure (s <> s2)
+instance Semigroup Structure where 
+  (<>) c1 c2 = Structure (getStructureString c1 <> getStructureString c2)
+
+
 
 getStructureString :: Structure -> String
 getStructureString content =
