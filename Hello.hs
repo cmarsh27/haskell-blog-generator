@@ -11,7 +11,7 @@ myhtml =
        (h1_ "Welcome to Haskell & Blog") 
        <>
         (
-         (p_ "This is my blog") 
+         (p_ "This is my NEW blog") 
          <>
          (
          (p_ "And this is another paragraph")
