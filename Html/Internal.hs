@@ -9,6 +9,7 @@ newtype Structure = Structure String
 type Title = String
 
 
+
 html_ :: Title -> Structure -> Html
 html_ title body = 
     Html

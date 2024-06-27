@@ -1,6 +1,7 @@
 module Markup
   ( Document
-  , Structure(..)
+  , Structure(..),
+  parse
   )
 where
 
@@ -17,6 +18,7 @@ data Structure
   | OrderedList [String]
   | CodeBlock [String]
   deriving Show
+
 parse :: String -> Document
 parse = parseLines Nothing . lines
 
